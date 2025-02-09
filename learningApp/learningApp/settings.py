@@ -10,10 +10,20 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+# Adding Configuration to use Media url for easy file storying
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# Selected the default user model for the app
+AUTH_USER_MODEL = 'main_app.User'
 
 
 # Quick-start development settings - unsuitable for production
@@ -31,6 +41,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "main_app",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
